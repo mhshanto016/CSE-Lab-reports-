@@ -1,0 +1,14 @@
+#include <stdio.h>
+#define ADD(x, y) ((x) + (y))
+#define SUBTRACT(x, y) ((x) - (y))
+#define MULTIPLY(x, y) ((x) * (y))
+#define DIVIDE(x, y) ((y) != 0 ? ((x) / (y)) : printf("Error: Division by zero\n", 0))
+int main() {
+    int num1, num2;
+    scanf("%d%d", &num1 ,&num2);
+    printf("Addition: %d\n", ADD(num1, num2));
+    printf("Subtraction: %d\n", SUBTRACT(num1, num2));
+    printf("Multiplication: %d\n", MULTIPLY(num1, num2));
+   printf("Division: %d\n", DIVIDE(num1, num2));
+    return 0;
+}
