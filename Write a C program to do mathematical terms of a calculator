@@ -1,0 +1,143 @@
+#include<stdio.h>
+#include<math.h>
+double number1,number2,sum;
+int option;
+double Addition()
+{
+ return number1+number2;
+}
+double Subtraction()
+{
+ return number1-number2;
+}
+double Multiplication()
+{
+ return number1*number2;
+}
+double Division()
+{
+ return number1/number2;
+}
+void square()
+{
+ number1*=number1;
+ number2*=number2;
+ printf("Answer of operation is : %.2lf and %.2lf\n",number1,number2);
+ return;
+}
+void square_root()
+{
+ number1 = sqrt(number1);
+ number2 = sqrt(number2);
+ printf("Answer of operation is : %.2lf and %.2lf\n",number1,number2);
+ return;
+}
+void cube()
+{
+ number1 = (number1*number1*number1);
+ number2 = (number2*number2*number2);
+ printf("Answer of operation is : %.2lf and %.2lf\n",number1,number2);
+ return;
+}
+void cubic_root()
+{
+ number1 = cbrt(number1);
+ number2 = cbrt(number2);
+ printf("Answer of operation is : %.2lf and %.2lf\n",number1,number2);
+ return;
+}
+void percentage()
+{
+ double ans = (number2/number1)*100;
+ printf("%.2lf is %.2lf%% of %.2lf",number2,ans,number1);
+}
+double power()
+{
+ double ans1=1;
+ for (int i=1; i<=number2; i++)
+ {
+ ans1 = ans1*number1;
+ }
+ return ans1;
+}
+int main()
+{
+ printf("How Many Times You Want To Run The Calculator: ");
+ int tc;
+ scanf("%d",&tc);
+ for (int i=1; i<=tc; i++)
+ {
+ printf("\n\n");
+ printf("Task No. %d Out of %d\n",i,tc);
+ printf("First Number: ");
+ scanf("%lf",&number1);
+ printf("Second Number: ");
+ scanf("%lf",&number2);
+ printf("Available Options:\n");
+ printf("1.Addition\n");
+ printf("2.Subtraction\n");
+ printf("3.Multiplication\n");
+ printf("4.Division\n");
+ printf("5.Square of Both Numbers\n");
+ printf("6.Square Root of Both Numbers\n");
+ printf("7.Cube of Both Numbers\n");
+ printf("8.Cubic Root of Both Numbers\n");
+ printf("9.Percentage\n");
+ printf("10.Power (Note: Both numbers must be less than 15!!!)\n");
+ printf("Enter Your Option: ");
+ scanf("%d",&option);
+ if (option>10 || option<1)
+ {
+ printf("ERROR!!!\nNO SUCH OPARATION\n");
+ continue;
+ }
+ if (option == 1)sum = Addition();
+ else if (option == 2)sum = Subtraction();
+ else if (option == 3)sum = Multiplication();
+ else if (option == 4)
+ {
+ if (number2 == 0)
+ {
+ printf("Math Error!!!\nCannot Divide a number by 0.\n");
+ continue;
+ }
+ sum = Division();
+ }
+ else if (option == 5)
+ {
+ square();
+ continue;
+ }
+ else if (option == 6)
+ {
+ square_root();
+ continue;
+ }
+ else if (option == 7)
+ {
+ cube();
+ continue;
+ }
+ else if (option == 8)
+ {
+ cubic_root();
+ continue;
+ }
+ else if (option == 9)
+ {
+ percentage();
+ continue;
+ }
+ else if (option == 10)
+ {
+ if (number1>14 || number2>14)
+ {
+ printf("Error!!!\nNumbers are too big for this oparation\n");
+ continue;
+ }
+ sum = power();
+ }
+ printf("Answer of operation is : %.2lf\n",sum);
+ }
+ return 0;
+}
