@@ -1,0 +1,14 @@
+#include <stdio.h>
+int main() {
+    long long largeNum;
+    scanf("%lld", &largeNum);
+    int sum = 0;
+    long long temp = largeNum;
+    while (temp > 0) {
+        int digit = temp % 10;
+        sum += digit;
+        temp /= 10;
+    }
+    printf("Sum of digits: %d\n", sum);
+    return 0;
+}
