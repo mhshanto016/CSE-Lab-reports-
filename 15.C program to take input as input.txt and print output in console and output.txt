@@ -1,0 +1,22 @@
+#include <stdio.h>
+int main() {
+    FILE *inputFile = fopen("input.txt", "r");
+    if (inputFile == NULL) {
+        perror("Error opening input file");
+        return 1;
+    }
+    FILE *outputFile = fopen("output.txt", "w");
+    if (outputFile == NULL) {
+        perror("Error opening output file");
+        fclose(inputFile);
+        return 1;
+    }
+    int value;
+    while (fscanf(inputFile, "%d", &value) == 1) {
+        printf("Input: %d\n", value);
+        fprintf(outputFile, "Output: %d\n", value);
+    }
+    fclose(inputFile);
+    fclose(outputFile);
+    return 0;
+}
